@@ -14,7 +14,7 @@ public class RefEvalControler {
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	@ResponseBody //use until template is developed
 	public String home(){
-		return "<h1>Welcome to the Hockey Referee Evaluation Site</h1>";
+		return "<h1>Welcome to the Hockey Referee Evaluation Site by Bob</h1>";
 		//eventually this will be a reference to html template
 	}
 
