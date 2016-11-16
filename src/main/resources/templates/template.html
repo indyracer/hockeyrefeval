@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:fragment="dochead">
+	<link th:href="@{/css/normalize.css}" rel="stylesheet" />
+	<link th:href="@{css/styles.css}" rel="stylesheet" />
+	<title>Hockey Officials Evaluation</title>
+</head>
+
+<body>
+
+	<nav th:fragment="navigation">
+		<ul id="user-account">
+			<li><a href="/login/officials">Officials Login</a></li>
+			<li><a href="/login/evaluators">Evaluators Login</a></li>
+			<li><a href="/login/admin">Admin Login</a></li>
+			<li><a href="/logout">Logout</a></li>		
+		</ul>
+	</nav>
+		
+	<!-- pages for officials -->
+	<nav th:fragment="nav-official">
+		<ul id="official">
+			<li><a href="/official">Officials Home</a></li>
+			<li><a href="/official/evaluations">Evaluations</a></li>
+			<li><a href="/official/evalrequest">Request an Evaluation</a></li>
+		</ul>
+	</nav>
+		
+	<!-- pages for evaluators -->
+	<nav th:fragments="nav-evaluator">
+		<ul id="evaluator">
+			<li><a href="/evaluator/home">Evaluators Home</a></li>
+			<li><a href="/evaluator/evalinput">Input an Evaluation</a></li>
+			<li><a href="/evaluator/review">Review Evaluations</a><li>
+			<li><a href="/evaluator/schedule">Evaluation Request Schedule</a><li>
+		</ul>
+	</nav>
+		
+	<!-- pages for admins -->
+	<nav th:fragment="nav-admin">
+		<ul id="admin">
+			<li><a href="admin/home">Admin Home</a></li>
+			<li><a href="admin/evalsetup">Set Up Evaluator</a>
+			<li><a href="admin/metrics">Metrics</a></li>
+		</ul>
+	</nav>
+	
+</body>
+
+</html>
