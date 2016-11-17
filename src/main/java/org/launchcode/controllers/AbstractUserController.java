@@ -25,7 +25,7 @@ public abstract class AbstractUserController {
 		return officialId == null ? null : officialDao.findByUid(officialId);
 	}
 	
-	protected void setUserInsession(HttpSession session, Official official) {
+	protected void setUserInSession(HttpSession session, Official official) {
 		session.setAttribute(userSessionKey, official.getUid());
 	}
 
