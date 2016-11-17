@@ -16,12 +16,14 @@ public class Evaluator extends AbstractUser{
 		super();
 	}
 	
-	//set up methods to review official's previous evaluations
+	
 	public String evaluatorFullName(String firstName, String lastName){
 		String evaluatorFullName = firstName + " " + lastName;
 		return evaluatorFullName;
 	}
 	
-
+	//set up methods to review official's previous evaluations
+	
+	//set up methods to input evaluations into db
 
 }
