@@ -37,6 +37,11 @@ public class Official extends AbstractUser {
 		return pwHash;
 	}
 	
+	public String fullName(String firstName, String lastName) {
+		String fullName = firstName + "" + lastName;
+		return fullName;
+	}
+	
 	private void setPwHash(String pwHash){
 		this.pwHash = pwHash;
 	}
