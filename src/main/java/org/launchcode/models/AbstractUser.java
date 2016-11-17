@@ -16,6 +16,10 @@ public class AbstractUser {
 	private String lastName;
 	private String username;
 	private String password;
+	protected String pwHash;
+	protected static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+	
+	
 	
 	
 	
@@ -60,6 +64,17 @@ public class AbstractUser {
 	
 	protected void setUsername (String username){
 		this.username = username;
+	}
+	
+	@NotNull
+	@Column(name = "pwhash")
+	public String getPwhash(){
+		pwHash = hashPassword(password);
+		return this.pwHash;
+	}
+	
+	private static String hashPassword(String password){
+		return encoder.encode(password);
 	}
 	
 	
