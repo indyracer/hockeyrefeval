@@ -77,6 +77,11 @@ public class AbstractUser {
 		return encoder.encode(password);
 	}
 	
+	//checks that submitted password is correct for login
+	public boolean isMatchingPassword(String password){
+		return encoder.matches(password, pwHash);
+	}
+	
 	
 
 }

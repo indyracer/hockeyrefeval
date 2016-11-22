@@ -37,12 +37,6 @@ public class Official extends AbstractUser {
 		return officialFullName;
 	}
 	
-		
-	
-	//the given password is correct for the user, call this by using official.isMatchingPasswor()
-	public boolean isMatchingPassword(String password){
-		return encoder.matches(password, pwHash);
-	}
 	
 	//password meets minimum standards
 	public static boolean isValidPassword(String password) {

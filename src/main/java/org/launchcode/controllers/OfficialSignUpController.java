@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import or.launchcode.models.dao.OfficialDao;
 
 @Controller
-public class AuthenticationController extends AbstractUserController{
+public class OfficialSignUpController extends AbstractUserController{
 
 	@Autowired
 	private OfficialDao officialDao;
@@ -57,48 +57,11 @@ public class AuthenticationController extends AbstractUserController{
 		
 		Official newOfficial = new Official(firstName, lastName, username, password, intLevel);
 		officialDao.save(newOfficial); //saves to db
-		setUserInSession(request.getSession(), newOfficial);
+		setOfficialInSession(request.getSession(), newOfficial);
 		
 		return "redirect:official/evaluations";
 	}
 	
-	@RequestMapping(value="official/login", method = RequestMethod.GET)
-	public String officialLoginFrom(){
-		return "official/login";
-	}
 	
-	@RequestMapping(value="official/login", method = RequestMethod.POST)
-	public String officialLogin(HttpServletRequest request, Model model) {
-		//get parameters from the login form
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		
-		//get official from username
-		Official official = officialDao.findByUsername(username);
-		
-		//validate username and password were submitted
-		if(username == null || username == "" || password == null || password == ""){
-			model.addAttribute("login_error", "Missing username or password, please try again");
-			return "official/login";
-		}
-		
-		//check password matches to official
-		if(!official.isMatchingPassword(password)){
-			model.addAttribute("login_error", "Incorrect password, please try again");
-			return "official/login";
-		}
-		
-		return "redirect:official/evaluation";
-	}
-	
-	
-	
-	
-	
-	@RequestMapping(value="/logout", method = RequestMethod.GET)
-	public String logout(org.apache.catalina.servlet4preview.http.HttpServletRequest request){
-		request.getSession().invalidate();
-		return "redirect:/";
-	}
 
 }
