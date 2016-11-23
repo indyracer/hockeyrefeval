@@ -3,13 +3,12 @@ package org.launchcode.controllers;
 import javax.servlet.http.HttpServletRequest;
 
 import org.launchcode.models.Evaluator;
+import org.launchcode.models.dao.EvaluatorDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import or.launchcode.models.dao.EvaluatorDao;
 
 @Controller
 public class EvaluatorLoginController extends AbstractUserController implements Login{
@@ -34,7 +33,7 @@ public class EvaluatorLoginController extends AbstractUserController implements 
 		String password = request.getParameter("password");
 		
 		//validate parameters in order to login
-		Evaluator evaluator = evaluatorDao.findByUserName(username);
+		Evaluator evaluator = evaluatorDao.findByUsername(username);
 		
 		//evaluator username and password field were are not blank
 		if(username == null || username == "" || password == null || password == ""){
@@ -60,7 +59,7 @@ public class EvaluatorLoginController extends AbstractUserController implements 
 	}
 
 	@Override
-	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	//@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpServletRequest request) {
 		request.getSession().invalidate();
 		return "redirect:/";

@@ -10,13 +10,15 @@ public class WebApplicationConfig extends WebMvcConfigurerAdapter{
 	
 	//Create managed bean to allow autowiring
 	@Bean
-	public AuthenticationInterceptor authentictionInterceptor() {
+	public AuthenticationInterceptor authenticationInterceptor() {
 		return new AuthenticationInterceptor();
 	}
 	
 	@Override
-	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(authenticationInteceptor());
-	}
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor( authenticationInterceptor() );
+    }
+
+	
 
 }

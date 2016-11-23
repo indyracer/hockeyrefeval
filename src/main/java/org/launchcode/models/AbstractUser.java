@@ -6,6 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @MappedSuperclass
@@ -19,19 +20,17 @@ public class AbstractUser {
 	protected String pwHash;
 	protected static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 	
-	
-	
-	
-	
-	
+		
 	@Id
 	@GeneratedValue
 	@NotNull
 	@Column(name = "uid", unique = true)
+	@Primary
 	public int getUid(){
 		return this.uid;
 	}
 	
+	@SuppressWarnings("unused")
 	protected void setUid(int uid){
 		this.uid = uid;
 	}
@@ -42,6 +41,7 @@ public class AbstractUser {
 		return this.firstName;
 	}
 	
+	@SuppressWarnings("unused")
 	protected void setFirstName(String firstName){
 		this.firstName = firstName;
 	}
@@ -62,6 +62,7 @@ public class AbstractUser {
 		return this.username;
 	}
 	
+	@SuppressWarnings("unused")
 	protected void setUsername (String username){
 		this.username = username;
 	}
@@ -71,6 +72,11 @@ public class AbstractUser {
 	public String getPwhash(){
 		pwHash = hashPassword(password);
 		return this.pwHash;
+	}
+	
+	@SuppressWarnings("unused")
+	private void setPwhash(String pwHash){
+		this.pwHash = pwHash;
 	}
 	
 	private static String hashPassword(String password){

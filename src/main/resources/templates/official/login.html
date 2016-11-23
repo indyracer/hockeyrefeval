@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="template :: dochead"></head>
+
+<body>
+	<div th:replace="template :: navigation"></div>
+	
+	<h1>Officials Login In</h1>
+	<p class = "login_error" th:text="${login_error}"></p>
+	
+	<form method = post>
+		<table>
+			<tr>
+				<td><label for="username">Username</label></td>
+				<td><input name="username" type="text" th:value="${username}"></input></td>
+			</tr>
+			<tr>
+				<td><label for="password">Password</label></td>
+				<td><input name="password" type="password" th:value="${password}"></input></td>
+			</tr>
+		</table>
+		
+		<button type="submit">Log In</button>
+	</form>
+	
+	<p><a href="/official/signup">Click here </a>to setup up your evaluation account</p>
+
+</body>
+
+</html>

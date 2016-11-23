@@ -1,4 +1,4 @@
-package or.launchcode.models.dao;
+package org.launchcode.models.dao;
 
 import java.util.List;
 
@@ -13,9 +13,9 @@ import org.springframework.stereotype.Repository;
 public interface EvaluatorDao extends CrudRepository<Evaluator, Integer> {
 	
 	Evaluator findByUid(int uid);
-	List<Evaluator> findAllEvaluators();
-	Evaluator findByUserName(String username);
-	Evaluator findByFullName(String evaluatorfullName);
+	List<Evaluator> findAll();
+	Evaluator findByUsername(String username);
+	
 	
 	
 

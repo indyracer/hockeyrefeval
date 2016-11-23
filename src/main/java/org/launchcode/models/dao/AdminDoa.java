@@ -1,4 +1,4 @@
-package or.launchcode.models.dao;
+package org.launchcode.models.dao;
 
 import java.util.List;
 
@@ -15,6 +15,6 @@ public interface AdminDoa extends CrudRepository<Admin, Integer>{
 	Admin findByUid(int uid);
 	List<Admin> findAll();
 	Admin findByUsername(String username);
-	Admin findByAdminFullName(String adminFullName);
+	
 
 }

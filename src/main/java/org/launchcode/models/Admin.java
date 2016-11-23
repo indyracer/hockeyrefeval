@@ -14,10 +14,7 @@ public class Admin extends AbstractUser{
 		super();
 	}
 	
-	public String adminFullName(String firstName, String lastName){
-		String adminFullName = firstName + " " + lastName;
-		return adminFullName;
-	}
+	
 	
 	//setup methods to add evaluators to evaluator db
 	

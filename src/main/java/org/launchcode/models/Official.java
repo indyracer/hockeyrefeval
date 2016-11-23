@@ -30,12 +30,12 @@ public class Official extends AbstractUser {
 	public int getLevel(){
 		return this.level;
 	}
+
 	
-	
-	public String officialFullName(String firstName, String lastName) {
-		String officialFullName = firstName + "" + lastName;
-		return officialFullName;
+	public void setLevel(int level) {
+		this.level = level;
 	}
+
 	
 	
 	//password meets minimum standards

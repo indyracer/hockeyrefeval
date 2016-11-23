@@ -1,4 +1,4 @@
-package or.launchcode.models.dao;
+package org.launchcode.models.dao;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ public interface OfficialDao extends CrudRepository<Official, Integer> {
 	List<Official> findAll();
 	Official findByUsername(String username);
 	Official findByLevel(int level);
-	Official findByFullName(String fullName);
+	
 	
 
 }

@@ -3,13 +3,12 @@ package org.launchcode.controllers;
 import javax.servlet.http.HttpServletRequest;
 
 import org.launchcode.models.Admin;
+import org.launchcode.models.dao.AdminDoa;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import or.launchcode.models.dao.AdminDoa;
 
 @Controller
 public class AdminLoginController extends AbstractUserController implements Login{
@@ -61,10 +60,10 @@ public class AdminLoginController extends AbstractUserController implements Logi
 	}
 
 	@Override
-	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	//@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpServletRequest request) {
 		request.getSession().invalidate();
-		return "redirect:/";
+		return "redirect:/admin/login";
 	}
 
 }

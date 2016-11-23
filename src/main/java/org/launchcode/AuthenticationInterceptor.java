@@ -7,12 +7,12 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.launchcode.controllers.AbstractUserController;
 import org.launchcode.models.Official;
+import org.launchcode.models.dao.OfficialDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.web.servlet.mvc.AbstractController;
-
-import or.launchcode.models.dao.OfficialDao;
 
 //QUESTION:  DO I NEED TO SET UP AN AUTHENTICATIONINTERCEPTOR FOR EACH TYPE OF USER OR CAN THEY ALL BE IN ONE CLASS?
 public class AuthenticationInterceptor extends HandlerInterceptorAdapter {
@@ -30,7 +30,7 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter {
 		if(authPages.contains(request.getRequestURI())) {
 			boolean isLoggedIn = false;
 			Official official;
-			Integer officialId = (Integer) request.getSession().getAttribute(AbstractController.userSessionKey); //this will be fixed when controllers are completed
+			Integer officialId = (Integer) request.getSession().getAttribute(AbstractUserController.officialSessionKey); //this will be fixed when controllers are completed
 			
 			if(officialId != null){
 				official = officialDao.findByUid(officialId);

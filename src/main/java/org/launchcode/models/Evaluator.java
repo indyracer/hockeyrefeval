@@ -17,10 +17,7 @@ public class Evaluator extends AbstractUser{
 	}
 	
 	
-	public String evaluatorFullName(String firstName, String lastName){
-		String evaluatorFullName = firstName + " " + lastName;
-		return evaluatorFullName;
-	}
+
 	
 	//set up methods to review official's previous evaluations
 	
